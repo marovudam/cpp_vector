@@ -135,7 +135,7 @@ class vector {
   };
 
   template <typename... Args>
-  iterator emplace(const_iterator pos, Args &&...args) {
+  iterator insert_many(const_iterator pos, Args &&...args) {
     iterator old_begin = begin();
     if (capacity_ < size_ + sizeof...(args)) reserve(size_ + sizeof...(args));
     iterator new_pos = begin() + (pos - old_begin);
@@ -155,7 +155,7 @@ class vector {
   }
 
   template <typename... Args>
-  void emplace_back(Args &&...args) {
+  void insert_many_back(Args &&...args) {
     if (capacity_ < size_ + sizeof...(args)) reserve(size_ + sizeof...(args));
     iterator new_pos = end();
     size_ += sizeof...(args);

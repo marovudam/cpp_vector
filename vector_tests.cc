@@ -723,7 +723,7 @@ TEST(VectorSwapSuite, SwapWithItself) {
 TEST(VectorEmplaceSuite, EmplaceTest) {
   cpp::vector<int> my_vector = {1, 2, 3, 4, 5};
   cpp::vector<int>::iterator my_iterator =
-      my_vector.emplace(my_vector.begin(), 6, 7, 8, 9);
+      my_vector.insert_many(my_vector.begin(), 6, 7, 8, 9);
   std::vector<int> std_vector = {6, 7, 8, 9, 1, 2, 3, 4, 5};
   for (size_t i = 0; i < std_vector.size(); i++)
     ASSERT_TRUE(my_vector[i] == std_vector[i]);
@@ -732,7 +732,7 @@ TEST(VectorEmplaceSuite, EmplaceTest) {
 
 TEST(VectorEmplaceSuite, EmplaceNothingTest) {
   cpp::vector<int> my_vector = {1, 2, 3, 4, 5};
-  cpp::vector<int>::iterator my_iterator = my_vector.emplace(my_vector.begin());
+  cpp::vector<int>::iterator my_iterator = my_vector.insert_many(my_vector.begin());
   std::vector<int> std_vector = {1, 2, 3, 4, 5};
   for (size_t i = 0; i < std_vector.size(); i++)
     ASSERT_TRUE(my_vector[i] == std_vector[i]);
@@ -742,7 +742,7 @@ TEST(VectorEmplaceSuite, EmplaceNothingTest) {
 TEST(VectorEmplaceSuite, EmplaceEmptyTest) {
   cpp::vector<int> my_vector = {};
   cpp::vector<int>::iterator my_iterator =
-      my_vector.emplace(my_vector.begin(), 1, 2, 3, 4, 5);
+      my_vector.insert_many(my_vector.begin(), 1, 2, 3, 4, 5);
   std::vector<int> std_vector = {1, 2, 3, 4, 5};
   for (size_t i = 0; i < std_vector.size(); i++)
     ASSERT_TRUE(my_vector[i] == std_vector[i]);
@@ -752,7 +752,7 @@ TEST(VectorEmplaceSuite, EmplaceEmptyTest) {
 TEST(VectorEmplaceSuite, EmplaceEndTest) {
   cpp::vector<int> my_vector = {1, 2, 3, 4, 5};
   cpp::vector<int>::iterator my_iterator =
-      my_vector.emplace(my_vector.end(), 6, 7, 8, 9);
+      my_vector.insert_many(my_vector.end(), 6, 7, 8, 9);
   std::vector<int> std_vector = {1, 2, 3, 4, 5, 6, 7, 8, 9};
   for (size_t i = 0; i < std_vector.size(); i++)
     ASSERT_TRUE(my_vector[i] == std_vector[i]);
@@ -761,7 +761,7 @@ TEST(VectorEmplaceSuite, EmplaceEndTest) {
 
 TEST(VectorEmplaceSuite, EmplaceBackTest) {
   cpp::vector<int> my_vector = {1, 2, 4, 5};
-  my_vector.emplace_back(3, 7, 8, 9);
+  my_vector.insert_many_back(3, 7, 8, 9);
   std::vector<int> std_vector = {1, 2, 4, 5, 3, 7, 8, 9};
   for (size_t i = 0; i < std_vector.size(); i++)
     ASSERT_TRUE(std_vector[i] == my_vector[i]);
@@ -769,7 +769,7 @@ TEST(VectorEmplaceSuite, EmplaceBackTest) {
 
 TEST(VectorEmplaceSuite, EmplaceBackNothing) {
   cpp::vector<int> my_vector = {1, 2, 4, 5};
-  my_vector.emplace_back();
+  my_vector.insert_many_back();
   std::vector<int> std_vector = {1, 2, 4, 5};
   for (size_t i = 0; i < std_vector.size(); i++)
     ASSERT_TRUE(std_vector[i] == my_vector[i]);
@@ -777,7 +777,7 @@ TEST(VectorEmplaceSuite, EmplaceBackNothing) {
 
 TEST(VectorEmplaceSuite, EmplaceBackEmpty) {
   cpp::vector<int> my_vector = {};
-  my_vector.emplace_back(1, 2, 4, 5);
+  my_vector.insert_many_back(1, 2, 4, 5);
   std::vector<int> std_vector = {1, 2, 4, 5};
   for (size_t i = 0; i < std_vector.size(); i++)
     ASSERT_TRUE(std_vector[i] == my_vector[i]);
