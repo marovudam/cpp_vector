@@ -50,3 +50,19 @@ Methods implemented:
 |`vector(std::initializer_list<value_type> const &items)`|Parametrized constructor. Creates vector with the contents of `initializer_list`|
 |`vector(const vector &v)`|Copy constructor. Creates new vector with the copy of contents of `v`|
 |`vector(vector &&v) noexcept`|Move constructor. Uses move semantics to construct vector with the contents of `v`|
+|`~vector()`|Destructor|
+|`reference at(size_type pos)`|Element access method. Throws std::out_of_range if index is out of borders|
+|`reference operator[](size_type pos)`|Element access operator. If index is out of range, undefined behaviour happens|
+|`const_reference front()`|Access the first element. UB if vector is empty|
+|`const_reference back()`|Access to the last behaviour. UB if vector is empty|
+|`T *data()`|Direct access to the array|
+|`iterator begin()`|Iterator to the beginning|
+|`iterator end()`|Iterator to the end (iterator to the element next to the last one)|
+|`bool empty()`|Checks if vector is empty|
+|`size_type size()`|Vector size -- the number of elements in it|
+|`size_type max_size()`||
+|`void reserve(size_type size)`||
+|`size_type capacity()`||
+|`void shrink_to_fit()`||
+|`void clear()`||
+|``||
